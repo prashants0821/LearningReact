@@ -39,9 +39,9 @@ import Contact from "./Contact";
 import RestaurantMenu from "./RestaurantMenu";
 import Profile from "./Profile";
 import Shimmer from "./Shimmer";
-import Instamart from "./Instamart";
+// import Instamart from "./Instamart";
 
-//  const Instamart = lazy(()  => import("./Instamart") );
+ const Instamart = lazy(()  => import("./Instamart") );
 
 const About = lazy(() => import("./About") );
 

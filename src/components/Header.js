@@ -11,7 +11,7 @@ export const Title = () =>(
     <a href="/">
         
   <img
-  className="logo"
+  className="h-28 p-2"
   alt="logo"
   src="https://yt3.ggpht.com/ytc/AMLnZu_EC-ECXAxRAixWGEfMsE1rdSoetBHyxmLNdtCB=s900-c-k-c0x00ffffff-no-rj"
   />
@@ -26,25 +26,25 @@ const Header = () =>{
 
     const isOnline = useOnline();
     return(
-           <div className="header">
+           <div className="flex justify-between bg-pink-400 shadow-md sm:bg-blue-50 md:bg-yellow-50">
                 <Title/>
                 {/* <h1>{title}</h1>
                 <button onClick={()=> setTitle("New Food App")}>Title change</button> */}
                 <div className="nav-items">
-                   <ul>
+                   <ul className="flex py-10 px-5">
                    <Link to= "/">
-                   <li>Home</li>
+                   <li className="px-5">Home</li>
                        </Link>
                        <Link to= "/about">
-                       <li>About</li>
+                       <li className="px-5">About</li>
                        </Link>
                        <Link to= "/contact">
-                       <li>Contact</li>
+                       <li className="px-5">Contact</li>
                        </Link>
                       
-                       <li>Cart</li>
+                       <li className="px-5">Cart</li>
                        <Link to= "/instamart">
-                        <li>Instamart</li>
+                        <li className="px-5">Instamart</li>
                        </Link>
                    </ul>
                 </div>
