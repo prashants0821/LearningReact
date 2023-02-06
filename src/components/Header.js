@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState , useContext } from "react";
 import { Link } from "react-router-dom";
 import useOnline from "../utils/useOnline";
+import UserContext from "../utils/UserContext";
 
 // const loggedInUser = () =>{
 //   //API call to check authentication
@@ -25,6 +26,9 @@ const Header = () =>{
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     const isOnline = useOnline();
+
+const {user} = useContext(UserContext);
+
     return(
            <div className="flex justify-between bg-pink-400 shadow-md sm:bg-blue-50 md:bg-yellow-50">
                 <Title/>
@@ -49,6 +53,7 @@ const Header = () =>{
                    </ul>
                 </div>
                 <h1>{isOnline? 'Yes' : 'No'}</h1>
+                <h1 className="p-10 font-bold text-red-600">{user.name}</h1>
                 {
                   (isLoggedIn ? <button onClick={()=> setIsLoggedIn(false
                     )}>Logout</button> : <button onClick={()=> setIsLoggedIn(true

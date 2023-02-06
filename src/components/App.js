@@ -24,7 +24,7 @@
 */ 
 
 
-import React, { lazy,Suspense } from "react";
+import React, { lazy,Suspense, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import { Title } from "./Header";
 import Header from "./Header";
@@ -39,7 +39,9 @@ import Contact from "./Contact";
 import RestaurantMenu from "./RestaurantMenu";
 import Profile from "./Profile";
 import Shimmer from "./Shimmer";
+import UserContext from "../utils/UserContext";
 // import Instamart from "./Instamart";
+
 
  const Instamart = lazy(()  => import("./Instamart") );
 
@@ -47,17 +49,39 @@ const About = lazy(() => import("./About") );
 
 //React.Fragment
   const AppLayout = () =>{
+
+  
+
+    const[user, setUser] = useState({
+      name:"Prashant",
+      email:"prashantsamant5@gmail.com",
+    })
+
+   
+
     return(
+    // <>
+    //     <Header/>
+    //     {/*{Outlet} */}
+    //     <Outlet/>
+    //     {/* <About/>
+    //     <Body/>
+    //     <Contact/> */}
+    //     <Footer/>
+    //     </>
     <>
-        <Header/>
-        {/*{Outlet} */}
-        <Outlet/>
-        {/* <About/>
-        <Body/>
-        <Contact/> */}
-        <Footer/>
-        </>
-    )
+     <UserContext.Provider
+        value={{
+          user: user,
+          setUser: setUser,
+        }}
+      >
+        <Header />
+        <Outlet />
+        <Footer />
+        </UserContext.Provider>
+    </>
+    );
   };
 
 
@@ -67,10 +91,7 @@ const About = lazy(() => import("./About") );
       element: <AppLayout/>,
       errorElement: <Error/>,
       children: [
-        {
-          path: "/",
-          element:<Body/>,
-        },
+       
         {
           path: "/about",
           element: <Suspense fallback={<h1>Loading</h1>}>
@@ -82,6 +103,10 @@ const About = lazy(() => import("./About") );
             element: <Profile/>,
           },
         ],
+        },
+        {
+          path: "/",
+          element:<Body />,
         },
         {
           path: "/contact",
