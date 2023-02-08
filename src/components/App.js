@@ -41,6 +41,8 @@ import Profile from "./Profile";
 import Shimmer from "./Shimmer";
 import UserContext from "../utils/UserContext";
 // import Instamart from "./Instamart";
+import { Provider } from "react-redux";
+import store from "../utils/store";
 
 
  const Instamart = lazy(()  => import("./Instamart") );
@@ -69,7 +71,8 @@ const About = lazy(() => import("./About") );
     //     <Contact/> */}
     //     <Footer/>
     //     </>
-    <>
+   
+   <Provider store={store}> 
      <UserContext.Provider
         value={{
           user: user,
@@ -80,7 +83,8 @@ const About = lazy(() => import("./About") );
         <Outlet />
         <Footer />
         </UserContext.Provider>
-    </>
+        </Provider>
+
     );
   };
 
