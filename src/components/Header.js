@@ -48,8 +48,9 @@ const cartItems = useSelector(store => store.cart.items);
                        <Link to= "/contact">
                        <li className="px-5">Contact</li>
                        </Link>
-                      
+                      <Link to= "/cart">
                        <li className="px-5">Cart - {cartItems.length}</li>
+                       </Link>
                        <Link to= "/instamart">
                         <li className="px-5">Instamart</li>
                        </Link>

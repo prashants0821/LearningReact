@@ -43,6 +43,7 @@ import UserContext from "../utils/UserContext";
 // import Instamart from "./Instamart";
 import { Provider } from "react-redux";
 import store from "../utils/store";
+import Cart from "./Cart";
 
 
  const Instamart = lazy(()  => import("./Instamart") );
@@ -126,6 +127,10 @@ const About = lazy(() => import("./About") );
             <Instamart/>
             </Suspense> ,
         },
+        {
+          path : "/cart",
+          element: <Cart/>
+        }
       ]
     },
  
