@@ -13,7 +13,7 @@ export const Title = () =>(
     <a href="/">
         
   <img
-  className="h-28 p-2" data-testId="logo"
+  className="h-28 p-2" data-testid="logo"
   alt="logo"
   src="https://yt3.ggpht.com/ytc/AMLnZu_EC-ECXAxRAixWGEfMsE1rdSoetBHyxmLNdtCB=s900-c-k-c0x00ffffff-no-rj"
   />
@@ -49,14 +49,14 @@ const cartItems = useSelector(store => store.cart.items);
                        <li className="px-5">Contact</li>
                        </Link>
                       <Link to= "/cart">
-                       <li className="px-5">Cart - {cartItems.length}</li>
+                       <li className="px-5" data-testid="cart">Cart - {cartItems.length}</li>
                        </Link>
                        <Link to= "/instamart">
                         <li className="px-5">Instamart</li>
                        </Link>
                    </ul>
                 </div>
-                <h1>{isOnline? 'Yes' : 'No'}</h1>
+                <h1 data-testid="online-status">{isOnline? 'Yes' : 'No'}</h1>
                 <h1 className="p-10 font-bold text-red-600">{user.name}</h1>
                 {
                   (isLoggedIn ? <button onClick={()=> setIsLoggedIn(false
